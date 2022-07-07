@@ -1,0 +1,62 @@
+\documentclass[12pt, DIV = 14, bibliography = numbered]{scrreport}
+
+% Weniger Abstand zwischen Absätzen, Absätze einrücken
+\setparsizes{1em}{0.25\baselineskip plus .25\baselineskip}{1em plus 1fil}
+
+\usepackage{stix2} % Schriftart für Text, für andere siehe https://tug.org/FontCatalogue/seriffontscategorised.html
+\usepackage[extralight]{FiraSans} % Schriftart für Überschriften, siehe https://tug.org/FontCatalogue/sansseriffonts.html
+\usepackage[T1]{fontenc}
+
+\usepackage[ngerman]{babel} % Deutsch
+\usepackage{csquotes} % Richtige Anführungszeichen
+
+\usepackage{xcolor} % Farben
+\definecolor{accent}{RGB}{186, 36, 21}
+
+% Grafiken
+\usepackage{float} % mit [H] an derselben Stelle einfügen
+\usepackage{tikz} % Vektorgrafik
+
+% Tabellen
+\usepackage{booktabs} % Querstriche
+
+% Mathesachen
+\usepackage{nicefrac} % schräge Brüche
+
+% SI Einheiten
+\usepackage{siunitx}
+\sisetup{locale = DE, per-mode = fraction}
+
+% Quellenverzeichnis
+\usepackage[backend = biber]{biblatex}
+\addbibresource{statik.bib}
+
+\usepackage{bookmark} % Referenzen verlinken via Mausklick
+
+% Zeilenabstand vergrößen:
+\linespread{1.2}
+
+% Kapitelnummern ausrücken:
+\renewcommand*{\chapterformat}{\makebox[0pt][r]{\textcolor{accent}{\chapappifchapterprefix{\ }\thechapter\autodot\hspace{\marginparsep}}}}
+\renewcommand*{\sectionformat}{\makebox[0pt][r]{\textcolor{accent}{\thesection\autodot\hspace{\marginparsep}}}}
+\renewcommand*{\subsectionformat}{\makebox[0pt][r]{\textcolor{accent}{\thesubsection\autodot\hspace{\marginparsep}}}}
+\renewcommand*{\subsubsectionformat}{\makebox[0pt][r]{\textcolor{accent}{\thesubsubsection\autodot\hspace{\marginparsep}}}}
+
+% Weniger Abstand vor Kapitelüberschriften:
+\renewcommand*{\chapterheadstartvskip}{\vspace*{0em}}
+\renewcommand*{\chapterheadendvskip}{\vspace*{1em}}
+
+% Nur bis section im Inhaltsverzeichnis
+\setcounter{tocdepth}{1}
+
+\begin{document}
+
+\tableofcontents
+\newpage
+
+\chapter{...}
+
+% Referenzen:
+\printbibliography
+
+\end{document}
